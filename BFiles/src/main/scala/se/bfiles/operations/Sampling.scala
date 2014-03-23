@@ -10,5 +10,9 @@ object Sampling {
     new Sampling(donor, samples)
   }
   
-  def sampling (donor: Donor, samples: Set[PrimarySample]): Sampling = Sampling(donor, samples)
+  def sample (donor: Donor, samples: Set[PrimarySample]): Sampling = {
+    val sampling = Sampling(donor, samples)
+    donor.sample(sampling)
+    sampling
+  }
 }

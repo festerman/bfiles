@@ -2,7 +2,7 @@ package se.bfiles
 
 import se.bfiles.entities._
 import se.bfiles.operations.Aliquoting.{aliquot => aliquot}
-import se.bfiles.operations.Sampling.{sampling => sample}
+import se.bfiles.operations.Sampling.{sample => sample}
 
 import se.bfiles.operations._
 import scala.collection.immutable.HashSet
@@ -36,10 +36,14 @@ object BFiles extends App {
   assert(tube2 has sample2)
   
   val sampling = sample(donor, samples)
+  sampling.id("sampling1")
   
   val ali = aliquot(sample1, 6)
+  ali.id("ali1")
   val aliquots = ali.aliquots
   
   assert(aliquots.head.parent.location == tube1)
+  assert(donor wasSampled sampling)
+  assert(donor wasSampled)
   
 }
