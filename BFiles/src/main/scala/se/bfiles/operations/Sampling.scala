@@ -7,7 +7,9 @@ class Sampling (val donor: Donor, val samples: Set[PrimarySample]) extends Opera
 
 object Sampling {
   def apply (donor: Donor, samples: Set[PrimarySample]): Sampling = {
-    new Sampling(donor, samples)
+    val s = new Sampling(donor, samples)
+    donor.sample(s)
+    s
   }
   
   def sample (donor: Donor, samples: Set[PrimarySample]): Sampling = {

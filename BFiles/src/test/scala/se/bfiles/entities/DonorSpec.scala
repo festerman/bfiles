@@ -8,7 +8,8 @@ import se.bfiles.operations.Sampling
 
 @RunWith(classOf[JUnitRunner])
 class DonorSpec extends Specification {
-
+	isolated
+	
 	val d = new Donor ()
 	val idstring = "id"
 	var samples1 = new HashSet[PrimarySample]()
