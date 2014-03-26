@@ -10,10 +10,11 @@ class SampleSpec extends Specification {
 	"A Sample " should {
 		"have id" in {
 			val idstring = "id1"
-					val s = new Sample()
+			val s = new Sample()
 			s.id(idstring)
 			s.id must_== idstring
 		}
+		
 		"be storable" in {
 			val s = new Sample()
 			val t = new Tube()
