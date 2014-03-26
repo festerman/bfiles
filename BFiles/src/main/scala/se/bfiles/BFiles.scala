@@ -1,11 +1,10 @@
 package se.bfiles
 
 import se.bfiles.entities._
-import se.bfiles.operations.Aliquoting.{aliquot => aliquot}
 import se.bfiles.operations.Sampling.{sample => sample}
-
 import se.bfiles.operations._
 import scala.collection.immutable.HashSet
+import se.bfiles.operators.Aliquoter
 
 class BFiles {
   val greeting = "Welcome to BFiles!"
@@ -38,12 +37,17 @@ object BFiles extends App {
   val sampling = sample(donor, samples)
   sampling.id("sampling1")
   
-  val ali = aliquot(sample1, 6)
+  val golem = new Robot with Aliquoter
+  
+  
+  val ali = golem.aliquot(sample1, 6)
   ali.id("ali1")
   val aliquots = ali.aliquots
   
   assert(aliquots.head.parent.location == tube1)
+  
   assert(donor wasSampled sampling)
   assert(donor wasSampled)
   
+  assert(ali wasDoneBy golem)
 }
