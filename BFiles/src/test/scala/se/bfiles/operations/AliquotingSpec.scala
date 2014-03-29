@@ -21,5 +21,13 @@ class AliquotingSpec extends Specification {
       a aliquoter ali
       a wasDoneBy ali must beTrue
     }
+    
+    "be able to tell if it's complete or not" in {
+      val a = Aliquoting(s)
+	    a.isComplete must beFalse
+	    a.aliquots(l)
+	    a.isComplete must beTrue
+	  }
+	
   }
 }

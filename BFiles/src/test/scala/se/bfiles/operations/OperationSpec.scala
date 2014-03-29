@@ -9,7 +9,9 @@ import se.bfiles.operators.Operator
 @RunWith(classOf[JUnitRunner])
 class OperationSpec extends Specification {
 	
-	class TestOperation extends Operation {}
+	class TestOperation extends Operation {
+	  val isComplete = false
+	}
 	val testOp = new TestOperation
 	
 	"An Operation " should {
@@ -21,8 +23,7 @@ class OperationSpec extends Specification {
 		  class TestOperator extends Operator {}
 		  val oper = new TestOperator
 	    testOp.operator(oper)
-	    testOp.operator must_== oper
-	    
+	    testOp.operator must_== oper 
 	  }
 	}
 	
