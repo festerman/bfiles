@@ -23,9 +23,9 @@ object BFiles extends App {
   samples += sample2
   
   val tube1 = new Tube
-  tube1 + sample1
+  tube1 store sample1
   val tube2 = new Tube
-  tube2 + sample2
+  tube2 store sample2
   
   tube1.barcode("barcode1")
   tube2.barcode("barcode2")

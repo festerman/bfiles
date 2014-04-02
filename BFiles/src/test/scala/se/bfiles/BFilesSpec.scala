@@ -35,7 +35,7 @@ BFiles is a Biobanking system. Entities:
 	def e2 = {
 			val s = new Sample()
 			val t = new Tube()
-			t + s
+			t store s
 			s.location must_== t
 	}
 	
