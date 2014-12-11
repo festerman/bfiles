@@ -1,11 +1,8 @@
 package se.bfiles.entities
 
-class Sample extends Entity with Storable {
+class Sample extends Entity with Storable
 
-}
-
-class PrimarySample (val donor: Donor) extends Sample {
-}
+class PrimarySample (val donor: Donor) extends Sample
 
 class Aliquot extends Sample {
   var _parent:Sample = null
